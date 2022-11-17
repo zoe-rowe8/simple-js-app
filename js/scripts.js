@@ -1,5 +1,8 @@
 alert('Hello World');
 
+let  favoriteFood = 'Sunday Roast';
+document.write(favoriteFood);
+
 /*let myName = 'Zoe';
 document.write(myName);
 myName = 'Zoe Rowe';
