@@ -1,5 +1,7 @@
 // List of Pokemon
-let pokemonList = [
+let pokemonRepository =(function () {
+    let pokemonList =[
+
     {
         name: 'Pikachu',
         height: 0.4,
@@ -37,17 +39,27 @@ let pokemonList = [
     }
 ];
 
+function getAll () {
+    return pokemonList;
+}
+
+pokemonRepository.add({
+    name: "Oddish",
+    height: 0.5,
+    abilities: ['Poison', 'Grass']
+  })
+
 //Adding forEach functions
 
-pokemonList.forEach(function(pokemon){
+pokemonRepository.getAll().forEach(function(pokemon){
     if(pokemon.height > 1.5){
         document.write(pokemon.name + ' (height: '+ pokemon.height + ') - Wow, that is a BIG Pokemon!' + '<br>')
     }
 
-else {
-    document.write(pokemon.name + ' (height: '+ pokemon.height+ ') <br>')
+    else {
+        document.write(pokemon.name + ' (height: '+ pokemon.height+ ') <br>')
 }
-})
+})})
 
 // Just incase - will delete later
 // Listing Pokemon heights using loops
