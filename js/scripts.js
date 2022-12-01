@@ -37,14 +37,27 @@ let pokemonList = [
     }
 ];
 
-// Listing Pokemon heights using loops
-for (let i = 0; i < pokemonList.length; i++){
-    // Adding conditional for height above 1.5
-    if(pokemonList[i].height >= 1.5) {
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m) - Wow, that is a BIG Pokemon!" + "<br>")
+//Adding forEach functions
+
+pokemonList.forEach(function(pokemon){
+    if(pokemon.height > 1.5){
+        document.write(pokemon.name + ' (height: '+ pokemon.height + ') - Wow, that is a BIG Pokemon!' + '<br>')
     }
-    // Adding any others 
-    else {
-        document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m)" + "<br>")
-    }
+
+else {
+    document.write(pokemon.name + ' (height: '+ pokemon.height+ ') <br>')
 }
+})
+
+// Just incase - will delete later
+// Listing Pokemon heights using loops
+// for (let i = 0; i < pokemonList.length; i++){
+ //    Adding conditional for height above 1.5
+ //   if(pokemonList[i].height >= 1.5) {
+ //       document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m) - Wow, that is a BIG Pokemon!" + "<br>")
+ //   }
+ //    Adding any others 
+ //   else {
+  //      document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m)" + "<br>")
+ //   }
+//}
