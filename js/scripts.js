@@ -1,6 +1,9 @@
 // List of Pokemon
-let pokemonRepository =(function () {
-    let pokemonList =[
+//Array of Pokemon is wrapped in an IIFE function
+let pokemonRepository = (function() {
+
+    // Array definition
+    let pokemonList = [
 
     {
         name: 'Pikachu',
@@ -39,37 +42,42 @@ let pokemonRepository =(function () {
     }
 ];
 
-function getAll () {
+
+//.push adds to the end of the array
+function add(pokemon) {
+    pokemonList.push(pokemon);
+}
+
+function getAll() {
     return pokemonList;
 }
 
+return {
+    add: add,
+    getAll: getAll
+};
+
+})();
+
+// Adding an extra Pokemon
 pokemonRepository.add({
     name: "Oddish",
     height: 0.5,
     abilities: ['Poison', 'Grass']
   })
 
-//Adding forEach functions
+  //Adding Array to console log
+  console.log(pokemonRepository.getAll())
 
-pokemonRepository.getAll().forEach(function(pokemon){
-    if(pokemon.height > 1.5){
-        document.write(pokemon.name + ' (height: '+ pokemon.height + ') - Wow, that is a BIG Pokemon!' + '<br>')
+  // Print list of Pokemon with their heights in the HTML file. 
+  // If height is equal to or larger than 1.5 add comment 'Wow, that is a BIG Pokemon!'
+function printList(pokemon) {
+    if (pokemon.height >= 1.5) {
+        document.write('<h2>' + pokemon.name + '</h2><p> height: ' + pokemon.height + ' m</p><p>Wow, that is a BIG Pokemon!</p>');
+    } else {
+        document.write('<h2>' + pokemon.name + '</h2><p> height: ' + pokemon.height + ' m</p>');
     }
-
-    else {
-        document.write(pokemon.name + ' (height: '+ pokemon.height+ ') <br>')
 }
-})})
 
-// Just incase - will delete later
-// Listing Pokemon heights using loops
-// for (let i = 0; i < pokemonList.length; i++){
- //    Adding conditional for height above 1.5
- //   if(pokemonList[i].height >= 1.5) {
- //       document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m) - Wow, that is a BIG Pokemon!" + "<br>")
- //   }
- //    Adding any others 
- //   else {
-  //      document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " m)" + "<br>")
- //   }
-//}
+//  Calling the forEach method to run printList for every array item of the pokemonList array.
+pokemonRepository.getAll().forEach(printList);
