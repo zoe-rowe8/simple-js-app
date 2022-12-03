@@ -45,39 +45,47 @@ let pokemonRepository = (function() {
 
 //.push adds to the end of the array
 function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "types" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
 }
 
 function getAll() {
     return pokemonList;
 }
 
+function addListItem(pokemon){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+  }
+
 return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
 };
 
 })();
 
-// Adding an extra Pokemon
-pokemonRepository.add({
-    name: "Oddish",
-    height: 0.5,
-    abilities: ['Poison', 'Grass']
-  })
 
-  //Adding Array to console log
-  console.log(pokemonRepository.getAll())
 
-  // Print list of Pokemon with their heights in the HTML file. 
-  // If height is equal to or larger than 1.5 add comment 'Wow, that is a BIG Pokemon!'
-function printList(pokemon) {
-    if (pokemon.height >= 1.5) {
-        document.write('<h2>' + pokemon.name + '</h2><p> height: ' + pokemon.height + ' m</p><p>Wow, that is a BIG Pokemon!</p>');
-    } else {
-        document.write('<h2>' + pokemon.name + '</h2><p> height: ' + pokemon.height + ' m</p>');
-    }
-}
+//Adding array to console log
+console.log(pokemonRepository.getAll());
 
-//  Calling the forEach method to run printList for every array item of the pokemonList array.
-pokemonRepository.getAll().forEach(printList);
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+
+  });
+
