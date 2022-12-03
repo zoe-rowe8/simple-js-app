@@ -61,6 +61,11 @@ function getAll() {
     return pokemonList;
 }
 
+// Adding showDetails function for event listener
+function showDetails(pokemon) {
+        console.log(pokemon);
+}
+
 function addListItem(pokemon){
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
@@ -69,6 +74,9 @@ function addListItem(pokemon){
     button.classList.add("button-class");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
+    button.addEventListener("click", function(event) {
+        showDetails(pokemon);
+    });
   }
 
 return {
@@ -78,7 +86,6 @@ return {
 };
 
 })();
-
 
 
 //Adding array to console log
