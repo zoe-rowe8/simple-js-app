@@ -57,6 +57,7 @@ function add(pokemon) {
     }
 }
 
+// Adding GetAll function
 function getAll() {
     return pokemonList;
 }
@@ -66,6 +67,7 @@ function showDetails(pokemon) {
         console.log(pokemon);
 }
 
+// Adding addListItem function
 function addListItem(pokemon){
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
@@ -94,5 +96,5 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
 
-  });
+    });
 
