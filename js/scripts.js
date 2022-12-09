@@ -19,7 +19,7 @@ function add(pokemon) {
     }
 }
 
-// Adding GetAll function
+// Calling pokemonList
 function getAll() {
     return pokemonList;
 }
@@ -29,7 +29,7 @@ function showDetails(pokemon) {
         console.log(pokemon);
 }
 
-// Adding addListItem function
+// Adding pokemonList as buttons with pokemon names
 function addListItem(pokemon){
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
