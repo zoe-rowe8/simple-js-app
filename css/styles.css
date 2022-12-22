@@ -37,6 +37,10 @@ h3 {
   color: var(--light-grey);
 }
 
+img { 
+  transform:scale(1)
+}
+
 .pokemon-header {
   background-color: #78c850;
   padding: 7px;
