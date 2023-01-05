@@ -29,7 +29,7 @@ function getAll() {
 // Adding pokemonList as buttons with pokemon names
 function addListItem(pokemon) {
     let listItem = $('<li class="list-group-item"></li>');
-    let button = $('<button class="pokemon-button btn btn-warning" data-target="pokemon-modal" data-toggle="modal">' + pokemon.name +  '</button>');
+    let button = $('<button class="pokemon-button btn btn-warning" data-target="#pokemon-modal" data-toggle="modal">' + pokemon.name +  '</button>');
     listItem.append(button);
     pokemonListElement.append(listItem);  
     button.on('click', function() {
